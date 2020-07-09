@@ -12,12 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class App {
     public static void main(String[] args){
-    	SpringApplication.run(App.class, args);
         SpringApplication app = new SpringApplication(App.class);
         
-        Map<String, Object> pro = new HashMap<String, Object>();
-        pro.put("server port", getPort());
-        app.setDefaultProperties(pro);
+        String puerto = getPort()+"";
+		System.setProperty("server.port", puerto);
               app.run(args);
     }
     
