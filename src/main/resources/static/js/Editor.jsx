@@ -3,7 +3,7 @@ const axios = axios.default;
 
 function BBServiceURL() {
     var host = window.location.host;
-    var url = 'wss://' + (host) + '/bbService';
+    var url = 'ws://' + (host) + '/bbService';
     console.log("URL Calculada: " + url);
     return url;
 }
@@ -22,7 +22,7 @@ class WSBBChannel {
 
     onOpen(evt) {
         console.log("In onOpen", evt);
-		axios.get('http://localhost:8080/ticket').then( ticket => {
+		axios.get('/ticket').then( ticket => {
 			console.log(ticket.data);
 			this.wsocket.send(ticket.data);
 		})
